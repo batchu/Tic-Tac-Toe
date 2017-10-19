@@ -22,7 +22,11 @@ interface BoardProps {
 
 }
 
-class Board extends React.Component <BoardProps, {}> {
+interface BoardState {
+    squares:Array<string>
+}
+
+class Board extends React.Component <BoardProps, BoardState> {
 
     constructor() {
         super()
@@ -32,13 +36,15 @@ class Board extends React.Component <BoardProps, {}> {
     }
 
     handleClick(i:number) {
-       alert(`Handling click in the Board Cmp now for ${i}`)
+        const squares = this.state.squares.slice();
+        squares[i] = 'X';
+        this.setState({squares: squares})
     }
 
     renderSquare(i:number) {
         return (
             <Square
-                value={`${i}`}
+                value={this.state.squares[i]}
                 onClick={()=> this.handleClick(i)}
             />
         );
