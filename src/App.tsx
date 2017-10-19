@@ -2,29 +2,48 @@ import * as React from 'react';
 import './App.css';
 
 interface SquareProps {
-
-    value: number;
+    value:string;
+    onClick:()=>void
 }
 class Square extends React.Component <SquareProps, {}> {
     render() {
         return (
-           <button
+            <button
                 className="square"
-                onClick={() => {alert(`clicked on ${this.props.value}`); }}
-           >
-               {this.props.value}
-           </button>
+                onClick={() => this.props.onClick()}
+            >
+                {this.props.value}
+            </button>
         );
     }
 }
 
-class Board extends React.Component {
+interface BoardProps {
 
-    renderSquare(i: number) {
+}
+
+class Board extends React.Component <BoardProps, {}> {
+
+    constructor() {
+        super()
+        this.state = {
+            squares: Array(9).fill(null)
+        }
+    }
+
+    handleClick(i:number) {
+       alert(`Handling click in the Board Cmp now for ${i}`)
+    }
+
+    renderSquare(i:number) {
         return (
-            <Square value={i} />
+            <Square
+                value={`${i}`}
+                onClick={()=> this.handleClick(i)}
+            />
         );
     }
+
     render() {
         return (
             <div>
@@ -58,11 +77,11 @@ class Game extends React.Component {
 }
 
 class App extends React.Component {
-  render() {
-    return (
-     <Game />
-    );
-  }
+    render() {
+        return (
+            <Game />
+        );
+    }
 }
 
 export default App;
