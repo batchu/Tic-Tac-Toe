@@ -17,6 +17,8 @@
     "@types/jest": "^21.1.2",
     "@types/node": "^8.0.34",
     "@types/react": "^16.0.10",
-    "@types/react-dom": "^16.0.1"
+    "@types/react-dom": "^16.0.1",
+    "react-test-renderer": "<current-version>",
+    "@types/react-test-renderer": "<current-version>"
   }
 }

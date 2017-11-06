@@ -53,7 +53,7 @@ class Board extends React.Component <BoardProps, BoardState> {
     render() {
         return (
             <div>
-                <div className="status">{status}</div>
+                <div className="status">Game Status</div>
                 <div className="board-row">
                     {this.renderSquare(0)}
                     {this.renderSquare(1)}
