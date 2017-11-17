@@ -2,6 +2,8 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {App, Board, Game, Square} from './App';
 
+import * as enzyme from 'enzyme';
+
 import * as  ReactTestRenderer from 'react-test-renderer';
 
 it('App renders without crashing', () => {
@@ -29,7 +31,19 @@ it("Board's handleClick should update the squares array based on the value passe
 
 it("When a Square is clicked, it should invoke the function attached to the click event", () => {
 
-    const instance: Square = new Square()
-    instance.render()
+    const squareValue = 'X'
+    let onClickwasCalled: boolean = false
+    const onClick = () => {
+        onClickwasCalled = true
+    }
+    enzyme.configure({adapter: new enzyme.EnzymeAdapter()})
+
+    const instance = enzyme.shallow(<Square
+        value={squareValue}
+        onClick={onClick}
+    />)
+
+    expect(instance.find("button")).toEqual('X')
+    expect(onClickwasCalled).toBeTruthy()
 
 })
