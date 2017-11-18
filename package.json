@@ -22,6 +22,7 @@
     "@types/node": "^8.0.34",
     "@types/react": "^16.0.10",
     "@types/react-dom": "^16.0.1",
-    "@types/react-test-renderer": "<current-version>"
+    "@types/react-test-renderer": "<current-version>",
+    "@types/enzyme-adapter-react-16": "<current-version>"
   }
 }
