@@ -57,36 +57,3 @@ exports[`Game renders properly 1`] = `
   </div>
 </div>
 `;
-
-exports[`Link changes the class when hovered 1`] = `
-<a
-  className="NORMAL"
-  href="http://www.facebook.com"
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
->
-  Facebook
-</a>
-`;
-
-exports[`Link changes the class when hovered 2`] = `
-<a
-  className="HOVERED"
-  href="http://www.facebook.com"
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
->
-  Facebook
-</a>
-`;
-
-exports[`Link changes the class when hovered 3`] = `
-<a
-  className="NORMAL"
-  href="http://www.facebook.com"
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
->
-  Facebook
-</a>
-`;

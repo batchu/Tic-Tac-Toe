@@ -82,59 +82,10 @@ class Game extends React.Component {
     }
 }
 
-interface LinkProps {
-    page: string
-}
-
-interface LinkState {
-    class: STATUS
-}
-
-enum STATUS {
-    NORMAL = 'NORMAL',
-    HOVERED = 'HOVERED'
-}
-
-class Link extends React.Component<LinkProps, LinkState> {
-
-    constructor(props: LinkProps) {
-        super(props);
-
-        this._onMouseEnter = this._onMouseEnter.bind(this);
-        this._onMouseLeave = this._onMouseLeave.bind(this);
-
-        this.state = {
-            class: STATUS.NORMAL,
-        };
-    }
-
-    _onMouseEnter() {
-        this.setState({ class: STATUS.HOVERED });
-    }
-
-    _onMouseLeave() {
-        this.setState({ class: STATUS.NORMAL });
-    }
-
-    render() {
-        return (
-            <a
-                className={this.state.class}
-                href={this.props.page || '#'}
-                onMouseEnter={this._onMouseEnter}
-                onMouseLeave={this._onMouseLeave}
-            >
-                {this.props.children}
-            </a>
-        );
-    }
-
-}
-
 export default class App extends React.Component {
     render() {
         return (
-            <Link page="https://batchu.net"> Batchu</Link>
+           <Game />
         );
     }
 }
