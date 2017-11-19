@@ -93,4 +93,3 @@ export default class App extends React.Component {
 export { Game }
 export { Board }
 export { Square }
-export { Link }

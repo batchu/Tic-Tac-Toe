@@ -40,15 +40,15 @@ describe('<Game />', () => {
 })
 
 describe('<Board />', () => {
-    it("Board's handleClick should update the squares array based on the value passed to it", () => {
-            const wrapper = enzyme.shallow(<Board />)
-            expect(wrapper.find('Square').length).toEqual(9)
-        })
+    it('should render three <Square /> components', () => {
+        const wrapper = enzyme.shallow(<Board />)
+        expect(wrapper.find('Square').length).toEqual(9)
+    })
 })
 
 
 describe('<Square />', () => {
-    it("when click it should invoke the function attached to the click event", () => {
+    it('when clicked it should invoke the function attached to the click event', () => {
 
         //Create the necessary input values for the test case
         const squareValue = 'X'
@@ -60,7 +60,7 @@ describe('<Square />', () => {
         />)
 
         wrapper.find('button').simulate('click')
-        expect(wrapper.find("button").props().children).toEqual('X')
+        expect(wrapper.find('button').props().children).toEqual('X')
         expect(mockOnClick.mock.calls.length).toBe(1)
 
     })
