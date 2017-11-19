@@ -7,14 +7,13 @@ import * as Adapter from 'enzyme-adapter-react-16';
 import App from './App'
 import { Board, Game, Square } from './App';
 
-
-//Run once before all tests
+// Run once before all tests
 beforeAll(() => {
     enzyme.configure({ adapter: new Adapter() })
 })
 
 describe('<App />', () => {
-    //An elementary test to verify that the entire App loads without a hiccup
+    // An elementary test to verify that the entire App loads without a hiccup
     it('renders without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(<App />, div);
@@ -22,18 +21,18 @@ describe('<App />', () => {
 })
 
 describe('<Game />', () => {
-    //A snapshot test to verify the Game component's UI did not change unexpectedly after being loaded
-    //More at https://facebook.github.io/jest/docs/en/snapshot-testing.html
+    // A snapshot test to verify the Game component's UI did not change unexpectedly after being loaded
+    // More at https://facebook.github.io/jest/docs/en/snapshot-testing.html
     it('renders properly', () => {
-        //Create an instance of the Component
+        // Create an instance of the Component
         const component = ReactTestRenderer.create(
             <Game />
         )
 
-        //Retreive it's JSON
+        // Retreive it's JSON
         const tree = component.toJSON()
 
-        //Compare it with the stored snapshot
+        // Compare it with the stored snapshot
         expect(tree).toMatchSnapshot()
 
     })
@@ -46,18 +45,14 @@ describe('<Board />', () => {
     })
 })
 
-
 describe('<Square />', () => {
     it('when clicked it should invoke the function attached to the click event', () => {
 
-        //Create the necessary input values for the test case
+        // Create the necessary input values for the test case
         const squareValue = 'X'
         const mockOnClick = jest.fn()
 
-        const wrapper = enzyme.shallow(<Square
-            value={squareValue}
-            onClick={mockOnClick}
-        />)
+        const wrapper = enzyme.shallow(<Square value={squareValue}  onClick={mockOnClick} />)
 
         wrapper.find('button').simulate('click')
         expect(wrapper.find('button').props().children).toEqual('X')
